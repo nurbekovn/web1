@@ -27,6 +27,7 @@ urlpatterns = [
     re_path(r'^users/(?P<id>\d+)/(?P<name>\D+)/', views.users),
     # path('products/', views.products),
     path('products/<int:productId>/', views.products),
-    path('users/', views.users)
+    path('users/', views.users),
+    path('details', views.details),
     # path('users/<int:id>/<str:name>/', views.users),
 ]

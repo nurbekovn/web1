@@ -1,17 +1,20 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponsePermanentRedirect
 
 
 def index(request):
-    return HttpResponse("<h2> Main Page </h2>")
+    return HttpResponse("Index")
 
 
 def about(request):
-    return HttpResponse("<h2> About Site </h2>")
+    return HttpResponse("About")
 
 
 def contact(request):
-    return HttpResponse("<h2> Contact </h2>")
+    return HttpResponse("/about")
+
+def details(request) :
+    return HttpResponsePermanentRedirect("/")
 
 
 def products(request, productId):
