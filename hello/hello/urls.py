@@ -15,19 +15,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.urls import re_path
+# from django.urls import re_path
 from firstapp import views
+from django.http.response import Http404
 
 urlpatterns = [
+    # path('admin/', admin.site.urls),
+    # path('sayHello/', include('HelloWorldApp.urls')),
     path('', views.index),
-    re_path(r'^about', views.about),
-    re_path(r'^contact', views.contact),
-    re_path(r'^products/$', views.products),
-    re_path(r'^products/(?P<productId>\d+)/', views.products),
-    re_path(r'^users/(?P<id>\d+)/(?P<name>\D+)/', views.users),
+    path('about/', views.about),
+    path('contact/', views.contact),
+    path('details/', views.details),
+    # re_path(r'^about', views.about),
+    # re_path(r'^contact', views.contact),
+    # re_path(r'^products/$', views.products),
+    # re_path(r'^products/(?P<productId>\d+)/', views.products),
+    # re_path(r'^users/(?P<id>\d+)/(?P<name>\D+)/', views.users),
     # path('products/', views.products),
-    path('products/<int:productId>/', views.products),
-    path('users/', views.users),
-    path('details', views.details),
+    # path('products/<int:productId>/', views.products),
+    # path('users/', views.users),
+    # path('details', views.details),
     # path('users/<int:id>/<str:name>/', views.users),
+
 ]

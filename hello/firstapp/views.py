@@ -1,9 +1,16 @@
 from django.shortcuts import render
-from django.http import HttpResponse,HttpResponsePermanentRedirect
+from django import *
+from django.http import HttpResponse, HttpResponsePermanentRedirect
 
 
 def index(request):
-    return HttpResponse("Index")
+    # return render(request, "firstapp/home.html")
+    header = "Personal data"
+    languages = ["English", "German", "Spain"]
+    user = {"name": "Azamat", "age": 30}    # словарь
+    address = ("WolfStreet", 23, 45)        # кортеж
+    data = {"header": header, "languages": languages, "user": user, "address": address}
+    return render(request, "index.html", context=data)
 
 
 def about(request):
@@ -13,7 +20,8 @@ def about(request):
 def contact(request):
     return HttpResponse("/about")
 
-def details(request) :
+
+def details(request):
     return HttpResponsePermanentRedirect("/")
 
 
@@ -25,6 +33,6 @@ def products(request, productId):
 
 def users(request):
     id = request.GET.get("id", 1)
-    name = request.GET.get("name", "Nurbekov")
+    name = request.GET.get("name", "Nurmuhammad")
     output = "<h2> User </h2> <h3> id: {0} Name: {1} </h3>".format(id, name)
     return HttpResponse(output)
