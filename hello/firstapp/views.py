@@ -3,14 +3,17 @@ from django import *
 from django.http import HttpResponse, HttpResponsePermanentRedirect
 
 
-def index(request):
-    # return render(request, "firstapp/home.html")
-    header = "Personal data"
-    languages = ["English", "German", "Spain"]
-    user = {"name": "Azamat", "age": 30}    # словарь
-    address = ("WolfStreet", 23, 45)        # кортеж
-    data = {"header": header, "languages": languages, "user": user, "address": address}
-    return render(request, "index.html", context=data)
+# def index(request):
+#     # return render(request, "firstapp/home.html")
+#     header = "Personal data"
+#     languages = ["English", "German", "Spain"]
+#     user = {"name": "Azamat", "age": 30}    # словарь
+#     address = ("WolfStreet", 23, 45)        # кортеж
+#     data = {"header": header, "languages": languages, "user": user, "address": address}
+#     return render(request, "index.html", context=data)
+
+def index(request) :
+    return render(request, "firstapp/home.html")
 
 
 def about(request):
